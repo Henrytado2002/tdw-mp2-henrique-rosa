@@ -16,8 +16,9 @@ function liStyle(index){
 }
 
 function FavCharlist(){
+    
 
-    const charlist = useSelector((state) => state.list.chars) || [];
+    const charlist = useSelector((state) => state.list?.chars || []);
     const filter_text = useSelector((state) => state.filter.value);
     const dispatch=useDispatch()
 
@@ -45,7 +46,7 @@ function FavCharlist(){
     }
 
     const Button = styled.button`
-      background-color: white;
+        background-color: white;
         border: 0;
         cursor: pointer;
         right: 0;

@@ -6,6 +6,7 @@ import apiSlice from './AllChar/apiSlice'; // Import the RTK Query API slice
 export default configureStore({
   reducer: {
     filter: filterReducer,
+    list: listReducer,
     [apiSlice.reducerPath]: apiSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>

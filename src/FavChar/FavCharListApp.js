@@ -25,10 +25,6 @@ function FavCharListApp() {
 	function removeTask(index){
 		setList(list.filter((_,i)=> index!=i ));
 	}
-
-
-	
-
 	
 	return (
 		<>

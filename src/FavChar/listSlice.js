@@ -11,9 +11,7 @@ export const listSlice = createSlice({
     },
     //deletes by index
     del : (state, action) => {
-      return state.chars.filter(
-        (_,index) => index !== action.payload
-      )
+      state.chars = state.chars.filter((_, index) => index !== action.payload);
     },
     overwrite:(state, action) => {
       state.chars = [...action.payload];
