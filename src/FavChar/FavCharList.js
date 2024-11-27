@@ -1,6 +1,8 @@
 import './FavCharList.css'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import styled, { css } from 'styled-components'
+
 import { add, del , overwrite } from './listSlice'
 import {change, filterSlice} from './filterSlice'
 import { useRef } from 'react'
@@ -24,17 +26,32 @@ function FavCharlist(){
     function generateViewList() {
         setShowList(charlist.filter((obj)=> obj.text.includes(filter_text)))
     }
-    
+
 	useEffect(() => {
         console.log("charlist:", charlist);
         console.log("filter_text:", filter_text);
         generateViewList()
     }, [charlist, filter_text]);
 
+    function delete_handler(index){
+        console.log(index)
+        dispatch(del(index))
+        console.log(charlist)
+    }
+
     function Overwrite_data(){
         dispatch(overwrite([{text:"one"},{text:"two"},{text:"three"}]))
         console.log(charlist)
     }
+
+    const Button = styled.button`
+      background-color: white;
+        border: 0;
+        cursor: pointer;
+        right: 0;
+        padding: 0;
+        font-size: 1.3em;  
+    `;
 
     return(
         <>
@@ -44,7 +61,7 @@ function FavCharlist(){
                     {showlist.map((obj,index)=> <li key={index} style={liStyle(index)}>
                                                 <div className='listitem-container'>
                                                     <span className='text'> {obj.text} </span> 
-                                                    <button style={liStyle(index)} className='list_delete_button' > ❌ </button>
+                                                    <Button style={liStyle(index)} onClick={()=>delete_handler(index)} className='list_delete_button' > ❌ </Button>
                                                 </div>
                                             </li>)}
                 </ul>

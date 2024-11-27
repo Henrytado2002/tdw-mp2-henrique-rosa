@@ -5,6 +5,7 @@ import './index.css';
 import { Provider } from 'react-redux';
 
 import FavCharListApp from './FavChar/FavCharListApp';
+import AllCharList from './AllChar/AllCharList';
 import HomePage from './HomePage';
 
 
@@ -21,6 +22,9 @@ const router = createBrowserRouter([{
 },{
   path: '/FavCharList',
   element: <FavCharListApp/>
+},{
+  path: '/AllChars',
+  element: <AllCharList/>
 }])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

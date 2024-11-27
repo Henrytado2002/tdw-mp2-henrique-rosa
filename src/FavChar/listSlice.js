@@ -12,7 +12,7 @@ export const listSlice = createSlice({
     //deletes by index
     del : (state, action) => {
       return state.chars.filter(
-        (_,index) => index !== action.payload.index
+        (_,index) => index !== action.payload
       )
     },
     overwrite:(state, action) => {
