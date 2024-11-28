@@ -12,6 +12,7 @@ import HomePage from './HomePage';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import store from './store'
+import TierList from './tierlist/TierList';
 
 
 //######## ROUTING ##########
@@ -25,14 +26,19 @@ const router = createBrowserRouter([{
 },{
   path: '/AllChars',
   element: <AllCharList/>
+  
+},{
+  path: '/TierList',
+  element: <TierList/>
+  
 }])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
+    
       <RouterProvider router={router} />
-    </React.StrictMode>
+    
   </Provider>
 );
 

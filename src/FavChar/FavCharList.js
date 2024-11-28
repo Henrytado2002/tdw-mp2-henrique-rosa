@@ -12,16 +12,20 @@ function liStyle(index) {
 
 function FavCharlist() {
   const charlist = useSelector((state) => state.list?.chars || []);
-  const filter_text = useSelector((state) => state.filter.value);
+  const filter_text = useSelector((state) => state.filter.value || '');
   const dispatch = useDispatch();
 
-  const [showlist, setShowList] = useState(charlist);
+  const [showlist, setShowList] = useState([]);
 
   function generateViewList() {
-    setShowList(charlist.filter((obj) => obj.text.includes(filter_text)));
+    const filtered = charlist.filter((char) => char.name?.includes(filter_text));
+    setShowList(filtered);
+    console.log('Filtered list:', filtered);
   }
 
   useEffect(() => {
+    console.log('charlist:', charlist);
+    console.log('filter_text:', filter_text);
     generateViewList();
   }, [charlist, filter_text]);
 
@@ -29,21 +33,13 @@ function FavCharlist() {
     dispatch(del(index));
   }
 
-  function Overwrite_data() {
-    dispatch(overwrite([{ text: 'one' }, { text: 'two' }, { text: 'three' }]));
-  }
-
   function moveItem(index, direction) {
     const newList = [...charlist];
     const targetIndex = index + direction;
 
-    // Check if the target index is within bounds
     if (targetIndex < 0 || targetIndex >= newList.length) return;
 
-    // Swap items
     [newList[index], newList[targetIndex]] = [newList[targetIndex], newList[index]];
-
-    // Update the list in Redux
     dispatch(overwrite(newList));
   }
 
@@ -62,20 +58,17 @@ function FavCharlist() {
 
   return (
     <div className="list_container">
-      <button onClick={Overwrite_data}>Overwrite!</button>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {showlist.map((obj, index) => (
+        {showlist.map((char, index) => (
           <li key={index} style={liStyle(index)}>
             <div className="listitem-container" style={{ display: 'flex', alignItems: 'center' }}>
-              <span className="text" style={{ flex: 1 }}>
-                {obj.text}
+              <span className="favlist_char_name" style={{ flex: 1 }}>
+                {char.name || 'Unnamed Character'}
               </span>
               <div>
                 <Button onClick={() => moveItem(index, -1)}>▲</Button>
                 <Button onClick={() => moveItem(index, 1)}>▼</Button>
-                <Button onClick={() => delete_handler(index)}>
-                  ❌
-                </Button>
+                <Button onClick={() => delete_handler(index)}>❌</Button>
               </div>
             </div>
           </li>

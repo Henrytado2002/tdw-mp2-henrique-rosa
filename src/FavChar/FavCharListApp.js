@@ -3,28 +3,21 @@ import FavCharlist from "./FavCharList";
 import FavCharFilter from "./FavCharListFilter";
 import Navbar from '../NavBar/NavBar';
 
-import {change, filterSlice} from './filterSlice'
-
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { overwrite } from "./listSlice";
 
 import './FavCharListApp.css'
 
 function FavCharListApp() {
+
+	const dispatch = useDispatch();
 	
-	const filter_text = useSelector((state)=>state.filter.value);
-
-	var JSONstr= localStorage.getItem("list");
-
-	const [list, setList] = useState((	JSONstr=="[]")? 
-										[]:
-										JSON.parse(JSONstr));
-
-	const [showList, setShowList] = useState(list);
-
-	function removeTask(index){
-		setList(list.filter((_,i)=> index!=i ));
+	var JSONstr = localStorage.getItem("list");
+	 console.log(JSON.parse(JSONstr), JSONstr!== null)
+	if(JSONstr!== null &&  JSONstr!== "[]"){
+		dispatch(overwrite(JSON.parse(JSONstr)))
 	}
+
 	
 	return (
 		<>

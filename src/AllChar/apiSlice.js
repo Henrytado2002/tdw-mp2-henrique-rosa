@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const apiSlice = createApi({
   reducerPath: 'rickAndMortyApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://rickandmortyapi.com/api/' }),
-  tagTypes: ['Character'], // Tag for cache invalidation
+  tagTypes: ['Character'],
   endpoints: (builder) => ({
     // Fetch all characters with pagination
     fetchCharacters: builder.query({
