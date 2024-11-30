@@ -1,42 +1,57 @@
 .tier-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 16px;
-    margin-top: 20px;
-  }
-  
-  .tier {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    min-height: 70px;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .tier-title {
-    margin: 0;
-    padding: 8px;
-    font-weight: bold;
-  }
-  
-  .tier-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 8px;
-    margin: 4px 0;
-    width: 100%;
-    text-align: center;
-    cursor: grab;
-  }
-  
-  .tier-item:active {
-    cursor: grabbing;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  width: 80vw;
+  margin-left: 10vw;
+}
+
+.tier {
+  width: 80vw;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  border: 2px solid rgb(177, 177, 177);
+  border-radius: 7px;
+  gap: 8px;
+}
+
+.tier h3 {
+  margin: 0 10px;
+  margin-bottom: 3px;
+  font-size: 2em;
+
+}
+
+.tier-items {
+  display: flex;
+  gap: 8px;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  min-height: 50px;
+  width: 80vw;
+}
+
+.tier-item {
+  background-color: #ffffff;
+  border-radius: 4px;
+
+  cursor: grab;
+  user-select: none;
+  font-size: 14px;
+}
+
+.tier-item:active {
+  cursor: grabbing;
+}
+
+.tier-item-image {
+  max-width: 70px; 
+  max-height: 100px; 
+  border-radius: 8px;
+  border: 2px solid black;
+  object-fit: cover; 
+}

@@ -4,7 +4,7 @@ import FavCharFilter from "./FavCharListFilter";
 import Navbar from '../NavBar/NavBar';
 
 import { useDispatch } from "react-redux";
-import { overwrite } from "./listSlice";
+import { overwrite, overwrite_for_tier } from "./listSlice";
 
 import './FavCharListApp.css'
 
@@ -16,6 +16,12 @@ function FavCharListApp() {
 	 console.log(JSON.parse(JSONstr), JSONstr!== null)
 	if(JSONstr!== null &&  JSONstr!== "[]"){
 		dispatch(overwrite(JSON.parse(JSONstr)))
+	}
+
+	var JSONstr2 = localStorage.getItem("tierlist");
+	 console.log(JSON.parse(JSONstr2), JSONstr2!== null)
+	if(JSONstr2!== null &&  JSONstr2!== "[]"){
+		dispatch(overwrite_for_tier(JSON.parse(JSONstr2)))
 	}
 
 	

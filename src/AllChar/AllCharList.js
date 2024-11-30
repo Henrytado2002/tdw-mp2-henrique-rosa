@@ -6,6 +6,7 @@ import Navbar from '../NavBar/NavBar';
 
 function AllCharList() {
   const charlist=useSelector((state) => state.list.chars)
+  const tierlist=useSelector((state) => state.list.charsForTierList)
   const [page, setPage] = useState(1); // State to keep track of the current page
   const { data, error, isLoading } = useFetchCharactersQuery(page);
   const dispatch = useDispatch();
@@ -45,6 +46,13 @@ function AllCharList() {
       console.error('Failed to fetch character:', err);
     }
   }
+  
+  function decide_dispatch(id){
+    if((charlist.filter((obj)=> obj.id == id)).length === 0){
+      Add_handler(id)
+    }else{
+    }
+  }
 
   // Render characters
   return (
@@ -63,8 +71,9 @@ function AllCharList() {
               <h3>{character.name}</h3>
               <p>Status: {character.status}</p>
               <p>Species: {character.species}</p>
-              <button className='allchars-add-button' onClick={()=>Add_handler(character.id)}>Add</button>
-              <button className='allchars-add-for-tier-button' onClick={()=>Add_for_tier_handler(character.id)}>Add</button>
+              {/* buttons with conditional inner text */}
+              <button className='allchars-add-button' onClick={()=>decide_dispatch(character.id)}> {(charlist.filter((obj)=> obj.id == character.id)).length === 0 ? "🤍" : "🧡" } </button>
+              <button className='allchars-add-for-tier-button' onClick={()=>Add_for_tier_handler(character.id)}>{(tierlist.filter((obj)=> obj.id == character.id)).length === 0 ? "☰" : "✔"} </button>
             </div>
           ))}
         </div>

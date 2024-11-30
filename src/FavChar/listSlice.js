@@ -19,6 +19,7 @@ export const listSlice = createSlice({
       state.charsForTierList.push(action.payload);
       state.numForTierList += 1; // Increment numForTierList correctly
       console.log("Added for tier:", action.payload);
+      localStorage.setItem('tierlist', JSON.stringify(state.charsForTierList))
     },
     del: (state, action) => {
       state.chars = state.chars.filter((_, index) => index !== action.payload);
@@ -30,6 +31,7 @@ export const listSlice = createSlice({
       state.charsForTierList = state.charsForTierList.filter((_, index) => index !== action.payload);
       state.numForTierList = Math.max(0, state.numForTierList - 1); // Prevent numForTierList from going negative
       console.log("Deleted for tier index:", action.payload);
+      localStorage.setItem('tierlist', JSON.stringify(state.charsForTierList))
     },
     overwrite: (state, action) => {
       state.chars = [...action.payload]; // Replace chars array
@@ -41,6 +43,7 @@ export const listSlice = createSlice({
       state.charsForTierList = [...action.payload]; // Replace charsForTierList array
       state.numForTierList = action.payload.length; // Update numForTierList
       console.log("Overwritten chars for tier:", action.payload);
+      localStorage.setItem('tierlist', JSON.stringify(state.charsForTierList))
     },
   },
 });
