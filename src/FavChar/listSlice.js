@@ -40,7 +40,7 @@ export const listSlice = createSlice({
       localStorage.setItem('list', JSON.stringify(state.chars))
     },
     overwrite_for_tier: (state, action) => {
-      state.charsForTierList = [...action.payload]; // Replace charsForTierList array
+      state.charsForTierList = action.payload; // Replace charsForTierList array
       state.numForTierList = action.payload.length; // Update numForTierList
       console.log("Overwritten chars for tier:", action.payload);
       localStorage.setItem('tierlist', JSON.stringify(state.charsForTierList))

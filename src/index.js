@@ -13,6 +13,8 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import store from './store'
 import TierList from './tierlist/TierList';
+import CharDetail from './CharDetail/CharDetail';
+import About from './About/About'
 
 
 //######## ROUTING ##########
@@ -25,12 +27,16 @@ const router = createBrowserRouter([{
   element: <FavCharListApp/>
 },{
   path: '/AllChars',
-  element: <AllCharList/>
-  
+  element: <AllCharList/>  
 },{
   path: '/TierList',
-  element: <TierList/>
-  
+  element: <TierList/>  
+},{
+  path: '/CharDetail',
+  element: <CharDetail/>
+},{
+  path: '/About',
+  element: <About/>
 }])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

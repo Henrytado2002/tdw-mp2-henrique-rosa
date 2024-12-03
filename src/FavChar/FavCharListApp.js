@@ -7,23 +7,19 @@ import { useDispatch } from "react-redux";
 import { overwrite, overwrite_for_tier } from "./listSlice";
 
 import './FavCharListApp.css'
+import { useEffect } from "react";
 
 function FavCharListApp() {
 
 	const dispatch = useDispatch();
 	
-	var JSONstr = localStorage.getItem("list");
-	 console.log(JSON.parse(JSONstr), JSONstr!== null)
-	if(JSONstr!== null &&  JSONstr!== "[]"){
+	useEffect(()=>{
+		var JSONstr = localStorage.getItem("list");
+	 	console.log(JSON.parse(JSONstr), JSONstr!== null)
+		if(JSONstr!== null &&  JSONstr!== "[]"){
 		dispatch(overwrite(JSON.parse(JSONstr)))
 	}
-
-	var JSONstr2 = localStorage.getItem("tierlist");
-	 console.log(JSON.parse(JSONstr2), JSONstr2!== null)
-	if(JSONstr2!== null &&  JSONstr2!== "[]"){
-		dispatch(overwrite_for_tier(JSON.parse(JSONstr2)))
-	}
-
+	},[])
 	
 	return (
 		<>

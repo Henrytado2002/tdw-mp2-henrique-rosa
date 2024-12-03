@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { useSelector } from "react-redux";
-import { listSlice } from "../FavChar/listSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { overwrite_for_tier } from "../FavChar/listSlice";
 import Navbar from "../NavBar/NavBar";
 import "./TierList.css";
 
@@ -12,16 +12,19 @@ import "./TierList.css";
 const TierList = () => {
 
   //initializing data to use on page
+  const dispatch = useDispatch();
+
+  
+  
   const Items = useSelector((state)=>state.list?.charsForTierList || [])
 
   const initialData = {
     tiers: {
-      S: [],
-      A: [],
-      B: [],
-      C: [],
-      D: [],
-      F: [],
+      AWSOME: [],
+      GOOD: [],
+      MEH: [],
+      BAD: [],
+      AWFUL: [],
       "": Items,
     },
   };
@@ -96,7 +99,9 @@ const TierList = () => {
             </Droppable>
           </div>
         ))}
+        
       </div>
+      
     </DragDropContext>
   );
 };
