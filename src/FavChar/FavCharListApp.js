@@ -1,6 +1,5 @@
 import FavCharlist from "./FavCharList";
 
-import FavCharFilter from "./FavCharListFilter";
 import Navbar from '../NavBar/NavBar';
 
 import { useDispatch } from "react-redux";
@@ -25,7 +24,6 @@ function FavCharListApp() {
 		<>
 			<Navbar/>
 			<div className="app_container">
-				<FavCharFilter/>
 				<FavCharlist  />
 			</div>
 		</>

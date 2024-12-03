@@ -20,11 +20,12 @@ const TierList = () => {
 
   const initialData = {
     tiers: {
-      AWSOME: [],
-      GOOD: [],
-      MEH: [],
-      BAD: [],
-      AWFUL: [],
+      S: [],
+      A: [],
+      B: [],
+      C: [],
+      E: [],
+      F: [],      
       "": Items,
     },
   };
@@ -63,7 +64,6 @@ const TierList = () => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Navbar/>
-      <h1 className="tier-list-page-title">Tier List</h1>
       <div className="tier-list">
         {Object.keys(tiers).map((tier) => (
           <div className="tier" key={tier}>

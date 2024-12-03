@@ -6,8 +6,8 @@ import { del, overwrite } from './listSlice';
 
 function liStyle(index) {
   return index % 2 === 0
-    ? { backgroundColor: 'rgb(212, 249, 255)' }
-    : { backgroundColor: 'white' };
+    ? { backgroundColor: 'rgb(99, 195, 99)',  }
+    : { backgroundColor: ' rgb(87, 124, 87)', };
 }
 
 function FavCharlist() {

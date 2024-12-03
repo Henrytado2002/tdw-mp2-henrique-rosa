@@ -15,13 +15,14 @@ function FavCharFilter(){
 
     return(
         <>
+        <div>
             <input className='filter_name_text_input' ref={filter_text} onChange={()=>{filter_text_handler()}}  placeholder='search by name'></input>
             <button className="filter_delete_button" 
                     onClick={()=>{
                         filter_text.current.value="";
                         filter_text_handler();                                       
                     }}>❌</button>
-
+        </div>
         </>
     );
 }

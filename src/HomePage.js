@@ -7,7 +7,6 @@ function HomePage(){
         <Navbar/>
         
         <ul>
-            
             <li><h1><Link to="/FavCharList"> Click to enter </Link></h1></li>
         </ul>
         

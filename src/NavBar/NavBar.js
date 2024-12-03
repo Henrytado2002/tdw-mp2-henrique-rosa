@@ -31,8 +31,6 @@ const Navbar = () => {
     }
   }
 
-  const linkstyling = { textDecoration: 'none', 
-                        color:'rgb(62, 254, 55)'}
   return (
     <nav className="navbar">
       <ul className='navlist'>
