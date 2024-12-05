@@ -71,9 +71,11 @@ function FavCharlist() {
     }
   `;
 
+  const title = showlist.length === 0 ? "Go to the All Characters page and select some characters!" :  "Your Favorite Characters are here:"
+
   return (
     <div className="list_container">
-      <h1 className='FavCharTitle'>Your Favorite Characters</h1>
+      <h1 className='FavCharTitle'>{title}</h1>
       <h3 classname="FavCharSecondTitle">{secondTitle}</h3>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         {showlist.map((char, index) => (
