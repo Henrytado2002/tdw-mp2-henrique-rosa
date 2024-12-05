@@ -1,6 +1,7 @@
 .navbar{
     top: 0;
     left: 0;
+    min-width: 100%;
     background-color: rgb(62, 90, 61);
     position: sticky;
     z-index: 30;
@@ -11,3 +12,7 @@
     display: flex;
 }
 
+.transition-overlay {
+    background-color: rgba(0, 0, 0, 0.8); /* Customize overlay color */
+    transform-origin: top; /* Animation starts from the top */
+  }

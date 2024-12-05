@@ -29,9 +29,24 @@ function FavCharlist() {
     generateViewList();
   }, [charlist, filter_text]);
 
+  useEffect(() => {
+    getSecondTitle();
+    console.log(secondTitle);
+  }, [showlist]);
+
   function delete_handler(index) {
     dispatch(del(index));
   }
+
+  function getSecondTitle(){
+    if(showlist.length==0){
+      secondTitle = "Nothing to show..."
+    }else{
+      secondTitle =  ""
+    }
+  }
+  
+  var secondTitle = ""
 
   function moveItem(index, direction) {
     const newList = [...charlist];
@@ -58,6 +73,8 @@ function FavCharlist() {
 
   return (
     <div className="list_container">
+      <h1 className='FavCharTitle'>Your Favorite Characters</h1>
+      <h3 classname="FavCharSecondTitle">{secondTitle}</h3>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         {showlist.map((char, index) => (
           <li key={index} style={liStyle(index)}>

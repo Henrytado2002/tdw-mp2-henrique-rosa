@@ -8,6 +8,10 @@ li{
     width: 600px;
 }
 
+.FavCharTitle{
+    text-align: center;
+}
+
 .favlist_char_name{
     font-size: 1.4em;
     margin-left: 20px;

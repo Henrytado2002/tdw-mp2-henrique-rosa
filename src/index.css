@@ -8,7 +8,23 @@ body {
   background-color: rgb(45, 45, 45);
 }
 
+html::-webkit-scrollbar {
+  width: 4px; 
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgb(62, 254, 55);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

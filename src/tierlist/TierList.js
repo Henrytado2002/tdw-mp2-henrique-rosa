@@ -24,7 +24,6 @@ const TierList = () => {
       A: [],
       B: [],
       C: [],
-      E: [],
       F: [],      
       "": Items,
     },
